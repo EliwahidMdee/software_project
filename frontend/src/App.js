@@ -19,6 +19,7 @@ import Sidebar from './components/layout/Sidebar';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Properties from './pages/Properties';
 
 /**
  * Protected Route Component
@@ -105,21 +106,20 @@ function App() {
               }
             />
             
-            {/* Placeholder routes for other pages */}
-            {/* These will be implemented in the next phase */}
+            {/* Properties Page */}
             <Route
               path="/properties"
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Properties</h1>
-                      <p className="text-gray-600 mt-2">Properties page coming soon...</p>
-                    </div>
+                    <Properties />
                   </Layout>
                 </ProtectedRoute>
               }
             />
+            
+            {/* Placeholder routes for other pages */}
+            {/* These will be implemented in the next phase */}
             
             <Route
               path="/units"
