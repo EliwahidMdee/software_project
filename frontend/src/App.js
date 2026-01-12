@@ -20,6 +20,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Properties from './pages/Properties';
+import Payments from './pages/Payments';
 
 /**
  * Protected Route Component
@@ -168,10 +169,7 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Payments</h1>
-                      <p className="text-gray-600 mt-2">Payments page coming soon...</p>
-                    </div>
+                    <Payments />
                   </Layout>
                 </ProtectedRoute>
               }
