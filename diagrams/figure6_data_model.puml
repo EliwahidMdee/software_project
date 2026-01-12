@@ -1,0 +1,118 @@
+@startuml
+' Figure 6 - Data Model Structure (Class Diagram)
+
+!define ENTITY class
+
+ENTITY User {
+  +id: Integer
+  +username: String
+  +email: String
+  +role: String
+  +password: Hash
+  +phone: String
+  +profile_picture: File
+  +created_at: DateTime
+}
+
+ENTITY Property {
+  +id: Integer
+  +name: String
+  +address: String
+  +type: String
+  +description: Text
+  +status: String
+  +landlord_id: FK
+  +created_at: DateTime
+}
+
+ENTITY PropertyImage {
+  +id: Integer
+  +property_id: FK
+  +image: File
+  +caption: String
+}
+
+ENTITY Unit {
+  +id: Integer
+  +property_id: FK
+  +unit_number: String
+  +bedrooms: Integer
+  +bathrooms: Decimal
+  +size: Decimal
+  +rent_amount: Decimal
+  +status: String
+}
+
+ENTITY Tenant {
+  +id: Integer
+  +user_id: FK
+  +date_of_birth: Date
+  +occupation: String
+  +emergency_contact: String
+  +emergency_phone: String
+}
+
+ENTITY Lease {
+  +id: Integer
+  +unit_id: FK
+  +tenant_id: FK
+  +start_date: Date
+  +end_date: Date
+  +rent_amount: Decimal
+  +security_deposit: Decimal
+  +status: String
+  +created_at: DateTime
+}
+
+ENTITY Payment {
+  +id: Integer
+  +lease_id: FK
+  +amount: Decimal
+  +payment_date: Date
+  +payment_method: String
+  +status: String
+  +receipt: File
+}
+
+ENTITY Expense {
+  +id: Integer
+  +property_id: FK
+  +description: Text
+  +amount: Decimal
+  +expense_date: Date
+  +category: String
+  +receipt: File
+}
+
+ENTITY Document {
+  +id: Integer
+  +lease_id: FK
+  +title: String
+  +file: File
+  +uploaded_at: DateTime
+}
+
+ENTITY Notification {
+  +id: Integer
+  +tenant_id: FK
+  +landlord_id: FK
+  +subject: String
+  +message: Text
+  +status: String
+  +created_at: DateTime
+}
+
+' Relationships
+User "1" -- "0..*" Property : owns >
+Property "1" -- "0..*" PropertyImage : has >
+Property "1" -- "0..*" Unit : contains >
+Property "1" -- "0..*" Expense : incurs >
+User "1" -- "0..1" Tenant : is >
+Unit "1" -- "0..*" Lease : leased_by >
+Tenant "1" -- "0..*" Lease : signs >
+Lease "1" -- "0..*" Payment : receives >
+Lease "1" -- "0..*" Document : has >
+Tenant "1" -- "0..*" Notification : sends >
+User "1" -- "0..*" Notification : receives >
+
+@enduml
