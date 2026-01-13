@@ -165,17 +165,6 @@ const Login = () => {
         </div>
         
         {/* Info Box */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <h3 className="text-sm font-semibold text-blue-900 mb-2">
-            For Testing:
-          </h3>
-          <p className="text-xs text-blue-800">
-            After setting up the backend, create a superuser with:<br />
-            <code className="bg-blue-100 px-2 py-1 rounded">
-              python manage.py createsuperuser
-            </code>
-          </p>
-        </div>
       </div>
     </div>
   );

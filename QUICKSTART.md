@@ -43,7 +43,7 @@ cp .env.example .env
 python manage.py migrate
 
 # Create admin user
-python manage.py createsuperuser
+python manage.py migrate
 # Enter: username=admin, email=admin@test.com, password=admin123
 
 # Create sample data (optional but recommended)
