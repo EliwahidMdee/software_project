@@ -116,6 +116,7 @@ export const isValidEmail = (email) => {
  * @returns {boolean} True if valid phone format
  */
 export const isValidPhone = (phone) => {
+  // eslint-disable-next-line no-useless-escape
   const phoneRegex = /^[\d\s\-\+\(\)]+$/;
   return phone.length >= 10 && phoneRegex.test(phone);
 };

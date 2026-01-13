@@ -8,7 +8,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { getAll, create, remove, uploadFile } from '../services/api';
+import { getAll, create, remove } from '../services/api';
 import { toast } from 'react-toastify';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';

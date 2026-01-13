@@ -15,7 +15,7 @@ import Button from '../components/common/Button';
 import Modal from '../components/common/Modal';
 import Input from '../components/common/Input';
 import LoadingSpinner from '../components/common/LoadingSpinner';
-import { getStatusColor, formatDate } from '../utils/helpers';
+import { formatDate } from '../utils/helpers';
 
 const Notifications = () => {
   // Get authenticated user
