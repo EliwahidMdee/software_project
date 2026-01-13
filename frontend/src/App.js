@@ -20,7 +20,13 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Properties from './pages/Properties';
+import Units from './pages/Units';
+import Tenants from './pages/Tenants';
+import Leases from './pages/Leases';
 import Payments from './pages/Payments';
+import Expenses from './pages/Expenses';
+import Documents from './pages/Documents';
+import Notifications from './pages/Notifications';
 
 /**
  * Protected Route Component
@@ -119,46 +125,37 @@ function App() {
               }
             />
             
-            {/* Placeholder routes for other pages */}
-            {/* These will be implemented in the next phase */}
-            
+            {/* Units Page */}
             <Route
               path="/units"
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Units</h1>
-                      <p className="text-gray-600 mt-2">Units page coming soon...</p>
-                    </div>
+                    <Units />
                   </Layout>
                 </ProtectedRoute>
               }
             />
             
+            {/* Tenants Page */}
             <Route
               path="/tenants"
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Tenants</h1>
-                      <p className="text-gray-600 mt-2">Tenants page coming soon...</p>
-                    </div>
+                    <Tenants />
                   </Layout>
                 </ProtectedRoute>
               }
             />
             
+            {/* Leases Page */}
             <Route
               path="/leases"
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Leases</h1>
-                      <p className="text-gray-600 mt-2">Leases page coming soon...</p>
-                    </div>
+                    <Leases />
                   </Layout>
                 </ProtectedRoute>
               }
@@ -175,43 +172,37 @@ function App() {
               }
             />
             
+            {/* Expenses Page */}
             <Route
               path="/expenses"
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Expenses</h1>
-                      <p className="text-gray-600 mt-2">Expenses page coming soon...</p>
-                    </div>
+                    <Expenses />
                   </Layout>
                 </ProtectedRoute>
               }
             />
             
+            {/* Documents Page */}
             <Route
               path="/documents"
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Documents</h1>
-                      <p className="text-gray-600 mt-2">Documents page coming soon...</p>
-                    </div>
+                    <Documents />
                   </Layout>
                 </ProtectedRoute>
               }
             />
             
+            {/* Notifications Page */}
             <Route
               path="/notifications"
               element={
                 <ProtectedRoute>
                   <Layout>
-                    <div className="p-6">
-                      <h1 className="text-3xl font-bold">Notifications</h1>
-                      <p className="text-gray-600 mt-2">Notifications page coming soon...</p>
-                    </div>
+                    <Notifications />
                   </Layout>
                 </ProtectedRoute>
               }
