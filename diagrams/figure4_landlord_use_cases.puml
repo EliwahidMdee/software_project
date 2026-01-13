@@ -9,43 +9,121 @@ rectangle "Rental Management System" {
     usecase "Manage Properties" as UC1
     usecase "Add Property" as UC1a
     usecase "Update Property" as UC1b
-    usecase "Add Unit" as UC1c
-    usecase "Upload Images" as UC1d
+    usecase "Delete Property" as UC1c
+    usecase "View Own Properties" as UC1d
+    usecase "Search Properties" as UC1e
     
-    usecase "Manage Leases" as UC2
-    usecase "Create Lease" as UC2a
-    usecase "Update Lease" as UC2b
-    usecase "Terminate Lease" as UC2c
+    usecase "Manage Units" as UC2
+    usecase "Add Unit" as UC2a
+    usecase "Update Unit" as UC2b
+    usecase "Delete Unit" as UC2c
+    usecase "Filter Units" as UC2d
+    usecase "View Unit Details" as UC2e
     
-    usecase "Track Payments" as UC3
-    usecase "View Payments" as UC3a
-    usecase "Record Payment" as UC3b
+    usecase "Manage Tenants" as UC3
+    usecase "Add Tenant" as UC3a
+    usecase "Update Tenant Info" as UC3b
+    usecase "Delete Tenant" as UC3c
+    usecase "View Tenant Profiles" as UC3d
+    usecase "Search Tenants" as UC3e
     
-    usecase "Manage Expenses" as UC4
-    usecase "Add Expense" as UC4a
-    usecase "View Expense History" as UC4b
-    usecase "Generate Reports" as UC4c
+    usecase "Manage Leases" as UC4
+    usecase "Create Lease" as UC4a
+    usecase "Update Lease" as UC4b
+    usecase "Terminate Lease" as UC4c
+    usecase "Filter Leases" as UC4d
+    usecase "View Lease Details" as UC4e
+    
+    usecase "Track Payments" as UC5
+    usecase "View Payments" as UC5a
+    usecase "Record Payment" as UC5b
+    usecase "Update Payment Status" as UC5c
+    usecase "Filter by Status" as UC5d
+    
+    usecase "Manage Expenses" as UC6
+    usecase "Add Expense" as UC6a
+    usecase "Update Expense" as UC6b
+    usecase "Delete Expense" as UC6c
+    usecase "View Expense History" as UC6d
+    usecase "Filter by Category" as UC6e
+    usecase "View Total Expenses" as UC6f
+    
+    usecase "Manage Documents" as UC7
+    usecase "Upload Document" as UC7a
+    usecase "Delete Document" as UC7b
+    usecase "View Documents" as UC7c
+    usecase "Filter by Type" as UC7d
+    usecase "Download Document" as UC7e
+    
+    usecase "Handle Notifications" as UC8
+    usecase "View Notifications" as UC8a
+    usecase "Mark as Read" as UC8b
+    usecase "Filter by Type" as UC8c
+    usecase "Create Notification" as UC8d
+    
+    usecase "View Dashboard" as UC9
+    usecase "View Statistics" as UC9a
+    usecase "View Recent Activity" as UC9b
 }
 
 Landlord --> UC1
 Landlord --> UC2
 Landlord --> UC3
 Landlord --> UC4
+Landlord --> UC5
+Landlord --> UC6
+Landlord --> UC7
+Landlord --> UC8
+Landlord --> UC9
 
 UC1 ..> UC1a : <<includes>>
 UC1 ..> UC1b : <<includes>>
 UC1 ..> UC1c : <<includes>>
 UC1 ..> UC1d : <<includes>>
+UC1 ..> UC1e : <<includes>>
 
 UC2 ..> UC2a : <<includes>>
 UC2 ..> UC2b : <<includes>>
 UC2 ..> UC2c : <<includes>>
+UC2 ..> UC2d : <<includes>>
+UC2 ..> UC2e : <<includes>>
 
 UC3 ..> UC3a : <<includes>>
 UC3 ..> UC3b : <<includes>>
+UC3 ..> UC3c : <<includes>>
+UC3 ..> UC3d : <<includes>>
+UC3 ..> UC3e : <<includes>>
 
 UC4 ..> UC4a : <<includes>>
 UC4 ..> UC4b : <<includes>>
 UC4 ..> UC4c : <<includes>>
+UC4 ..> UC4d : <<includes>>
+UC4 ..> UC4e : <<includes>>
+
+UC5 ..> UC5a : <<includes>>
+UC5 ..> UC5b : <<includes>>
+UC5 ..> UC5c : <<includes>>
+UC5 ..> UC5d : <<includes>>
+
+UC6 ..> UC6a : <<includes>>
+UC6 ..> UC6b : <<includes>>
+UC6 ..> UC6c : <<includes>>
+UC6 ..> UC6d : <<includes>>
+UC6 ..> UC6e : <<includes>>
+UC6 ..> UC6f : <<includes>>
+
+UC7 ..> UC7a : <<includes>>
+UC7 ..> UC7b : <<includes>>
+UC7 ..> UC7c : <<includes>>
+UC7 ..> UC7d : <<includes>>
+UC7 ..> UC7e : <<includes>>
+
+UC8 ..> UC8a : <<includes>>
+UC8 ..> UC8b : <<includes>>
+UC8 ..> UC8c : <<includes>>
+UC8 ..> UC8d : <<includes>>
+
+UC9 ..> UC9a : <<includes>>
+UC9 ..> UC9b : <<includes>>
 
 @enduml

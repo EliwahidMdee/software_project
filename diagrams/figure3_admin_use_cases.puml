@@ -12,17 +12,61 @@ rectangle "Rental Management System" {
     usecase "Delete User" as UC1c
     usecase "View User List" as UC1d
     
-    usecase "Monitor System" as UC2
-    usecase "View Dashboard" as UC2a
-    usecase "Access Logs" as UC2b
-    usecase "View Statistics" as UC2c
+    usecase "Manage Properties" as UC2
+    usecase "Add/Edit Property" as UC2a
+    usecase "Delete Property" as UC2b
+    usecase "View All Properties" as UC2c
     
-    usecase "Configure Settings" as UC3
+    usecase "Manage Units" as UC3
+    usecase "Add/Edit Unit" as UC3a
+    usecase "Delete Unit" as UC3b
+    usecase "View All Units" as UC3c
+    
+    usecase "Manage Tenants" as UC4
+    usecase "Add/Edit Tenant" as UC4a
+    usecase "Delete Tenant" as UC4b
+    usecase "View All Tenants" as UC4c
+    
+    usecase "Manage Leases" as UC5
+    usecase "Create/Edit Lease" as UC5a
+    usecase "Terminate Lease" as UC5b
+    usecase "View All Leases" as UC5c
+    
+    usecase "Manage Payments" as UC6
+    usecase "Record Payment" as UC6a
+    usecase "View All Payments" as UC6b
+    usecase "Update Payment Status" as UC6c
+    
+    usecase "Manage Expenses" as UC7
+    usecase "Add/Edit Expense" as UC7a
+    usecase "View All Expenses" as UC7b
+    usecase "Filter by Category" as UC7c
+    
+    usecase "Manage Documents" as UC8
+    usecase "Upload Document" as UC8a
+    usecase "Delete Document" as UC8b
+    usecase "View All Documents" as UC8c
+    
+    usecase "Manage Notifications" as UC9
+    usecase "View All Notifications" as UC9a
+    usecase "Mark as Read" as UC9b
+    usecase "Delete Notification" as UC9c
+    
+    usecase "Monitor System" as UC10
+    usecase "View Dashboard" as UC10a
+    usecase "View Statistics" as UC10b
 }
 
 Admin --> UC1
 Admin --> UC2
 Admin --> UC3
+Admin --> UC4
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+Admin --> UC9
+Admin --> UC10
 
 UC1 ..> UC1a : <<includes>>
 UC1 ..> UC1b : <<includes>>
@@ -32,5 +76,36 @@ UC1 ..> UC1d : <<includes>>
 UC2 ..> UC2a : <<includes>>
 UC2 ..> UC2b : <<includes>>
 UC2 ..> UC2c : <<includes>>
+
+UC3 ..> UC3a : <<includes>>
+UC3 ..> UC3b : <<includes>>
+UC3 ..> UC3c : <<includes>>
+
+UC4 ..> UC4a : <<includes>>
+UC4 ..> UC4b : <<includes>>
+UC4 ..> UC4c : <<includes>>
+
+UC5 ..> UC5a : <<includes>>
+UC5 ..> UC5b : <<includes>>
+UC5 ..> UC5c : <<includes>>
+
+UC6 ..> UC6a : <<includes>>
+UC6 ..> UC6b : <<includes>>
+UC6 ..> UC6c : <<includes>>
+
+UC7 ..> UC7a : <<includes>>
+UC7 ..> UC7b : <<includes>>
+UC7 ..> UC7c : <<includes>>
+
+UC8 ..> UC8a : <<includes>>
+UC8 ..> UC8b : <<includes>>
+UC8 ..> UC8c : <<includes>>
+
+UC9 ..> UC9a : <<includes>>
+UC9 ..> UC9b : <<includes>>
+UC9 ..> UC9c : <<includes>>
+
+UC10 ..> UC10a : <<includes>>
+UC10 ..> UC10b : <<includes>>
 
 @enduml
