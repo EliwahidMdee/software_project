@@ -16,6 +16,35 @@ def add_toc(doc):
     """Add Table of Contents placeholder"""
     doc.add_paragraph('Table of Contents', style='Heading 1')
     doc.add_paragraph('(This section will be auto-generated in Word: References > Table of Contents)')
+    doc.add_paragraph()
+    
+    # Add manual TOC structure for reference
+    toc_items = [
+        '1.0 Introduction',
+        '    1.1 Purpose',
+        '    1.2 Scope of Project',
+        '    1.3 Glossary',
+        '    1.4 References',
+        '    1.5 Overview of Document',
+        '    1.6 Stakeholders',
+        '2.0 Overall Description',
+        '    2.1 System Environment',
+        '    2.2 Functional Requirements Specification',
+        '    2.3 User Characteristics',
+        '    2.4 Non-Functional Requirements',
+        '    2.5 Budget',
+        '    2.6 Feasibility Study',
+        '3.0 Requirements Specification',
+        '    3.1 External Interface Requirements',
+        '    3.2 Functional Requirements',
+        '    3.3 Detailed Non-Functional Requirements',
+        '    3.4 Data Model',
+        'Appendix A: PlantUML Diagram Instructions',
+    ]
+    
+    for item in toc_items:
+        doc.add_paragraph(item)
+    
     doc.add_page_break()
 
 def add_figures_list(doc):
@@ -119,6 +148,49 @@ def add_introduction(doc):
         'specifications for each requirement, including external interfaces, functional requirements, '
         'and detailed non-functional requirements.'
     )
+    
+    # 1.6 Stakeholders
+    doc.add_heading('1.6 Stakeholders', level=2)
+    
+    doc.add_heading('Primary Stakeholders', level=3)
+    p = doc.add_paragraph()
+    p.add_run(
+        'These are individuals directly supporting, managing, and enabling the platform operations:\n'
+    )
+    
+    stakeholders_primary = [
+        ('Eliwahid Mdee', 'Project Lead & Developer', 
+         'System architecture and development\nProject management and coordination\nLeveraging GitHub Student Developer Pack benefits\nTechnical implementation and maintenance'),
+        ('Development Team', 'Software Engineers & Developers',
+         'Backend development (Django)\nFrontend development (React)\nDatabase design and optimization\nQuality assurance and testing\nSecurity implementation'),
+    ]
+    
+    for name, role, responsibilities in stakeholders_primary:
+        p = doc.add_paragraph()
+        p.add_run(f'{name} – {role}\n').bold = True
+        p.add_run(responsibilities)
+        doc.add_paragraph()
+    
+    doc.add_heading('Secondary Stakeholders', level=3)
+    p = doc.add_paragraph()
+    p.add_run(
+        'These are partners and users who support platform functionality and business continuity:\n'
+    )
+    
+    stakeholders_secondary = [
+        ('Property Owners & Landlords', 
+         'End users who manage rental properties\nProvide real-world requirements and feedback\nTest and validate system functionality'),
+        ('Tenants', 
+         'End users who rent properties\nProvide user experience feedback\nValidate payment and communication features'),
+        ('System Administrators',
+         'Manage system operations\nMonitor system health and security\nHandle user support requests'),
+    ]
+    
+    for role, description in stakeholders_secondary:
+        p = doc.add_paragraph()
+        p.add_run(f'{role}\n').bold = True
+        p.add_run(description)
+        doc.add_paragraph()
     
     doc.add_page_break()
 
@@ -230,6 +302,183 @@ end note
         p = doc.add_paragraph()
         p.add_run(f'{category}: ').bold = True
         p.add_run(description)
+    
+    # 2.5 Budget
+    doc.add_heading('2.5 Budget (Estimated)', level=2)
+    
+    p = doc.add_paragraph()
+    p.add_run(
+        'The following budget estimate considers GitHub Student Developer Pack benefits available to '
+        'the project lead (Eliwahid Mdee), which provides free access to various development tools '
+        'and services:\n'
+    )
+    
+    doc.add_heading('Budget Breakdown', level=3)
+    
+    # Create a budget table
+    budget_items = [
+        ('Item', 'Cost (USD)', 'Notes'),
+        ('System Development (Backend + Frontend)', '$0', 'In-house development by team'),
+        ('UI/UX Design', '$0', 'Using free tools: Figma (free tier), Tailwind CSS'),
+        ('Domain Name (.com/.net)', '$12/year', 'Standard domain registration'),
+        ('Hosting & Deployment', '$0', 'GitHub Student Pack: Free hosting via Azure, Heroku, or DigitalOcean credits'),
+        ('SSL Certificate', '$0', 'Free via Let\'s Encrypt or hosting provider'),
+        ('Database Hosting', '$0', 'GitHub Student Pack: Free MySQL hosting via PlanetScale or Railway'),
+        ('Development Tools', '$0', 'GitHub Student Pack: Free access to JetBrains, GitHub Pro, etc.'),
+        ('Testing & QA Tools', '$0', 'Free tools: Jest, Pytest, GitHub Actions for CI/CD'),
+        ('Cloud Storage (Files/Images)', '$0', 'GitHub Student Pack: Free storage credits via AWS Educate or Azure'),
+        ('Security Tools', '$0', 'GitHub Advanced Security, CodeQL (free for public/education repos)'),
+        ('Project Management', '$0', 'GitHub Projects, Trello (free tier)'),
+        ('Email Service', '$0', 'SendGrid (free tier: 100 emails/day)'),
+        ('Monitoring & Analytics', '$0', 'Free tools: Google Analytics, Sentry (free tier)'),
+        ('Documentation', '$0', 'GitHub Pages, GitBook (free tier)'),
+        ('Contingency (Miscellaneous)', '$50', 'Buffer for unforeseen expenses'),
+    ]
+    
+    # Add budget items as formatted text
+    for item, cost, notes in budget_items:
+        p = doc.add_paragraph()
+        p.add_run(f'{item}: ').bold = True
+        p.add_run(f'{cost}')
+        if notes:
+            p.add_run(f'\n   → {notes}').italic = True
+    
+    p = doc.add_paragraph()
+    p.add_run('\nTotal First Year Budget: ~$62 USD').bold = True
+    
+    p = doc.add_paragraph()
+    p.add_run(
+        '\nGitHub Student Developer Pack Benefits:\n'
+        'The project significantly benefits from the GitHub Student Developer Pack, which provides:\n'
+    )
+    doc.add_paragraph('$200 in DigitalOcean credits (2 years)', style='List Bullet')
+    doc.add_paragraph('$100 in Microsoft Azure credits', style='List Bullet')
+    doc.add_paragraph('Free domain name via Namecheap (1 year)', style='List Bullet')
+    doc.add_paragraph('Free JetBrains Professional Developer Tools', style='List Bullet')
+    doc.add_paragraph('GitHub Pro features (unlimited private repositories)', style='List Bullet')
+    doc.add_paragraph('Free SSL certificates and CDN via Cloudflare', style='List Bullet')
+    doc.add_paragraph('Access to premium development and deployment tools', style='List Bullet')
+    
+    p = doc.add_paragraph()
+    p.add_run(
+        '\nNote: Using student benefits, the project can be developed and deployed with minimal '
+        'financial investment, making it highly cost-effective and accessible for educational purposes.'
+    )
+    
+    # 2.6 Feasibility Study
+    doc.add_heading('2.6 Feasibility Study', level=2)
+    
+    p = doc.add_paragraph()
+    p.add_run(
+        'A comprehensive feasibility analysis has been conducted to determine the viability of '
+        'the Rental Management System across technical, economic, operational, and legal dimensions.\n'
+    )
+    
+    doc.add_heading('2.6.1 Technical Feasibility', level=3)
+    p = doc.add_paragraph()
+    p.add_run('Assessment: ').bold = True
+    p.add_run('Highly Feasible\n\n')
+    
+    technical_factors = [
+        'Technology Stack Availability: All required technologies (React, Django, MySQL) are open-source, well-documented, and widely supported',
+        'Development Expertise: Team has access to extensive learning resources, tutorials, and community support for the chosen tech stack',
+        'Infrastructure: GitHub Student Pack provides necessary hosting, database, and deployment infrastructure at no cost',
+        'Scalability: Django and React are proven technologies capable of handling the expected user load and data volume',
+        'Integration: REST API architecture allows easy integration with third-party services and future enhancements',
+        'Development Tools: Free access to professional IDEs (JetBrains), version control (GitHub Pro), and CI/CD tools',
+    ]
+    
+    for factor in technical_factors:
+        doc.add_paragraph(factor, style='List Bullet')
+    
+    p = doc.add_paragraph()
+    p.add_run('\nResult: ').bold = True
+    p.add_run('The project is technically feasible with available resources and expertise.')
+    
+    doc.add_heading('2.6.2 Economic Feasibility', level=3)
+    p = doc.add_paragraph()
+    p.add_run('Assessment: ').bold = True
+    p.add_run('Highly Feasible\n\n')
+    
+    economic_factors = [
+        'Low Initial Investment: Total first-year cost of only $62 USD due to GitHub Student benefits',
+        'Zero Hosting Costs: Free hosting credits eliminate major recurring expenses',
+        'No License Fees: All software and tools are either free or included in student pack',
+        'Scalable Costs: Expenses grow gradually with usage, allowing budget adjustment over time',
+        'Revenue Potential: System can be monetized through subscription plans or license sales',
+        'Educational Value: Serves as learning project with practical application, providing ROI in skills development',
+        'Long-term Sustainability: Minimal maintenance costs with cloud-based infrastructure',
+    ]
+    
+    for factor in economic_factors:
+        doc.add_paragraph(factor, style='List Bullet')
+    
+    p = doc.add_paragraph()
+    p.add_run('\nResult: ').bold = True
+    p.add_run('The project is economically feasible with excellent cost-benefit ratio.')
+    
+    doc.add_heading('2.6.3 Operational Feasibility', level=3)
+    p = doc.add_paragraph()
+    p.add_run('Assessment: ').bold = True
+    p.add_run('Feasible\n\n')
+    
+    operational_factors = [
+        'User Acceptance: Property management is a common need with clear user benefits',
+        'Market Demand: Growing digitization in property management creates market opportunity',
+        'User Training: Intuitive interface design minimizes training requirements',
+        'Support Team: Development team can provide initial support and maintenance',
+        'Deployment: Cloud-based deployment allows easy access without installation',
+        'Maintenance: Modular architecture facilitates updates and bug fixes',
+        'Documentation: Comprehensive documentation supports user adoption and maintenance',
+    ]
+    
+    for factor in operational_factors:
+        doc.add_paragraph(factor, style='List Bullet')
+    
+    p = doc.add_paragraph()
+    p.add_run('\nResult: ').bold = True
+    p.add_run('The project is operationally feasible with proper planning and execution.')
+    
+    doc.add_heading('2.6.4 Legal and Risk Feasibility', level=3)
+    p = doc.add_paragraph()
+    p.add_run('Assessment: ').bold = True
+    p.add_run('Feasible\n\n')
+    
+    legal_factors = [
+        'Open Source Compliance: All technologies used have permissive licenses (MIT, BSD, Apache)',
+        'Data Protection: System implements security best practices for data protection',
+        'Privacy Compliance: User data handling follows GDPR principles and best practices',
+        'Authentication Security: JWT-based authentication with secure password hashing',
+        'Risk Mitigation: Regular backups, error handling, and monitoring reduce operational risks',
+        'Terms of Service: Clear user agreements and privacy policies can be implemented',
+        'Liability Management: System logs and audit trails provide accountability',
+    ]
+    
+    for factor in legal_factors:
+        doc.add_paragraph(factor, style='List Bullet')
+    
+    p = doc.add_paragraph()
+    p.add_run('\nResult: ').bold = True
+    p.add_run('The project is legally feasible with proper security and compliance measures.')
+    
+    doc.add_heading('2.6.5 Overall Feasibility Conclusion', level=3)
+    p = doc.add_paragraph()
+    p.add_run(
+        'Based on comprehensive analysis across all dimensions, the Rental Management System is '
+        'highly feasible and viable. The project benefits significantly from:\n'
+    )
+    
+    doc.add_paragraph('GitHub Student Developer Pack providing essential infrastructure at no cost', style='List Bullet')
+    doc.add_paragraph('Proven, well-supported technology stack', style='List Bullet')
+    doc.add_paragraph('Clear market need and user benefits', style='List Bullet')
+    doc.add_paragraph('Low financial risk with high educational value', style='List Bullet')
+    doc.add_paragraph('Strong foundation for future growth and monetization', style='List Bullet')
+    
+    p = doc.add_paragraph()
+    p.add_run(
+        '\nThe combination of minimal costs, available expertise, and proven technologies makes '
+        'this an ideal project for both educational purposes and potential commercial deployment.'
+    )
     
     doc.add_page_break()
 

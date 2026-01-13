@@ -9,8 +9,8 @@ This document provides a complete Software Requirements Specification for the Re
 ### 1. Main SRS Document
 - **File:** `SRS_RentalManagementSystem.docx`
 - **Format:** Microsoft Word (DOCX)
-- **Size:** ~44 KB
-- **Contents:** Complete SRS document with all sections
+- **Size:** ~50 KB
+- **Contents:** Complete SRS document with all sections including Budget, Stakeholders, and Feasibility Study
 
 ### 2. PlantUML Diagram Files (diagrams/ directory)
 All diagrams are provided as PlantUML code for easy modification and regeneration:
@@ -28,9 +28,14 @@ All diagrams are provided as PlantUML code for easy modification and regeneratio
 - **Purpose:** Automated generation of the SRS document
 - **Usage:** `python3 generate_srs.py`
 
+### 4. GitHub Copilot Prompt
+- **File:** `COPILOT_SRS_PROMPT.md`
+- **Purpose:** Master prompt for generating SRS documents using GitHub Copilot
+- **Usage:** Copy the prompt and provide it to GitHub Copilot with your project details
+
 ## Document Structure
 
-The SRS document follows the standard IEEE format:
+The SRS document follows the standard IEEE format with additional modern sections:
 
 ### Section 1: Introduction
 - 1.1 Purpose
@@ -38,6 +43,9 @@ The SRS document follows the standard IEEE format:
 - 1.3 Glossary
 - 1.4 References
 - 1.5 Overview of Document
+- **1.6 Stakeholders** ⭐ NEW
+  - Primary Stakeholders (including Eliwahid Mdee as Project Lead)
+  - Secondary Stakeholders
 
 ### Section 2: Overall Description
 - 2.1 System Environment
@@ -47,6 +55,16 @@ The SRS document follows the standard IEEE format:
   - 2.2.3 Tenant Use Cases
 - 2.3 User Characteristics
 - 2.4 Non-Functional Requirements
+- **2.5 Budget (Estimated)** ⭐ NEW
+  - Budget breakdown considering GitHub Student Developer Pack benefits
+  - Total first-year cost: ~$62 USD
+  - Detailed notes on free services and credits available
+- **2.6 Feasibility Study** ⭐ NEW
+  - 2.6.1 Technical Feasibility
+  - 2.6.2 Economic Feasibility
+  - 2.6.3 Operational Feasibility
+  - 2.6.4 Legal and Risk Feasibility
+  - 2.6.5 Overall Feasibility Conclusion
 
 ### Section 3: Requirements Specification
 - 3.1 External Interface Requirements
@@ -76,6 +94,31 @@ The SRS document follows the standard IEEE format:
 
 ## Key Features of This SRS
 
+### ✅ Complete IEEE 830-1998 Compliance
+Following all standard sections plus modern additions
+
+### ✅ Stakeholders Section
+Identifies all project stakeholders including:
+- Eliwahid Mdee as Project Lead with GitHub Student benefits
+- Development team and their roles
+- End users and secondary stakeholders
+
+### ✅ Budget Analysis
+Comprehensive budget breakdown with:
+- Line-item costs for all components
+- GitHub Student Developer Pack benefits integration
+- Free hosting, tools, and services identification
+- Total first-year cost: ~$62 USD
+- Cost-effective approach for educational projects
+
+### ✅ Feasibility Study
+Four-dimensional feasibility analysis:
+- Technical Feasibility: Technology availability and expertise
+- Economic Feasibility: Cost-benefit and ROI analysis
+- Operational Feasibility: User acceptance and market demand
+- Legal/Risk Feasibility: Compliance and risk mitigation
+- Overall conclusion with go/no-go recommendation
+
 ### ✅ Use Case Diagrams
 Each user role (Admin, Landlord, Tenant) has detailed use case diagrams showing all available functionality.
 
@@ -100,6 +143,9 @@ The document covers:
 - External interfaces (API, database, UI)
 - Data model (database structure)
 - Process flows (state and activity diagrams)
+- Budget and cost analysis
+- Feasibility across all dimensions
+- Stakeholder identification and roles
 
 ## Adapting from Reference Example
 
@@ -112,6 +158,59 @@ This SRS was created by:
 5. **Adding modern requirements** - REST API, JWT authentication, responsive design
 6. **Including user stories** - Agile methodology integration
 7. **Defining acceptance criteria** - Clear, testable requirements
+8. **Adding Stakeholders section** - Identifying project team and beneficiaries
+9. **Comprehensive Budget** - Including GitHub Student benefits analysis
+10. **Feasibility Study** - Four-dimensional viability analysis
+
+## GitHub Student Developer Pack Benefits
+
+The project leverages the GitHub Student Developer Pack, which provides:
+
+- **$200 in DigitalOcean credits** (2 years) - Hosting and deployment
+- **$100 in Microsoft Azure credits** - Cloud services and database hosting
+- **Free domain name** via Namecheap (1 year) - Professional web presence
+- **JetBrains Professional Tools** - IDEs for Python, JavaScript, and more
+- **GitHub Pro features** - Unlimited private repositories and advanced tools
+- **Free SSL certificates** via Cloudflare - Secure HTTPS connections
+- **PlanetScale or Railway** - Free MySQL database hosting
+- **SendGrid** - Free email service (100 emails/day)
+- **Many more tools** - CI/CD, monitoring, analytics, and development tools
+
+These benefits reduce the project's first-year cost to approximately **$62 USD**, making it highly accessible for educational purposes while maintaining professional quality.
+
+## Using GitHub Copilot Prompt
+
+A comprehensive prompt has been created for generating SRS documents using GitHub Copilot:
+
+### Quick Start
+1. Open the file `COPILOT_SRS_PROMPT.md`
+2. Copy the master prompt section
+3. Paste it into GitHub Copilot Chat
+4. Add your project-specific details:
+   - Project name and type
+   - Technology stack
+   - User roles
+   - Main features
+   - Budget constraints
+   - Team information
+
+### Example Usage
+```
+Using the SRS generation prompt from COPILOT_SRS_PROMPT.md, create an SRS document for:
+- Project: E-Commerce Mobile Platform
+- Tech Stack: React Native, Node.js, PostgreSQL
+- User Roles: Customer, Vendor, Admin
+- Main Features: Product browsing, ordering, payment, delivery tracking
+- Budget: Student project with GitHub Student benefits
+- Team Lead: Your Name
+```
+
+### Benefits
+- **Automated Generation**: Create complete SRS in minutes
+- **Consistency**: Follow IEEE 830-1998 standards automatically
+- **Completeness**: All required sections included
+- **Customizable**: Easy to adapt for different projects
+- **Best Practices**: Built-in quality and structure guidelines
 
 ## Using This Documentation
 
