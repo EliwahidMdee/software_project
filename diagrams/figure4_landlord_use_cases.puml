@@ -1,0 +1,51 @@
+@startuml
+' Figure 4 - Landlord Use Cases
+
+left to right direction
+
+actor "Landlord" as Landlord
+
+rectangle "Rental Management System" {
+    usecase "Manage Properties" as UC1
+    usecase "Add Property" as UC1a
+    usecase "Update Property" as UC1b
+    usecase "Add Unit" as UC1c
+    usecase "Upload Images" as UC1d
+    
+    usecase "Manage Leases" as UC2
+    usecase "Create Lease" as UC2a
+    usecase "Update Lease" as UC2b
+    usecase "Terminate Lease" as UC2c
+    
+    usecase "Track Payments" as UC3
+    usecase "View Payments" as UC3a
+    usecase "Record Payment" as UC3b
+    
+    usecase "Manage Expenses" as UC4
+    usecase "Add Expense" as UC4a
+    usecase "View Expense History" as UC4b
+    usecase "Generate Reports" as UC4c
+}
+
+Landlord --> UC1
+Landlord --> UC2
+Landlord --> UC3
+Landlord --> UC4
+
+UC1 ..> UC1a : <<includes>>
+UC1 ..> UC1b : <<includes>>
+UC1 ..> UC1c : <<includes>>
+UC1 ..> UC1d : <<includes>>
+
+UC2 ..> UC2a : <<includes>>
+UC2 ..> UC2b : <<includes>>
+UC2 ..> UC2c : <<includes>>
+
+UC3 ..> UC3a : <<includes>>
+UC3 ..> UC3b : <<includes>>
+
+UC4 ..> UC4a : <<includes>>
+UC4 ..> UC4b : <<includes>>
+UC4 ..> UC4c : <<includes>>
+
+@enduml

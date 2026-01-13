@@ -1,0 +1,36 @@
+@startuml
+' Figure 3 - Admin Use Cases
+
+left to right direction
+
+actor "Admin" as Admin
+
+rectangle "Rental Management System" {
+    usecase "Manage Users" as UC1
+    usecase "Create User" as UC1a
+    usecase "Update User" as UC1b
+    usecase "Delete User" as UC1c
+    usecase "View User List" as UC1d
+    
+    usecase "Monitor System" as UC2
+    usecase "View Dashboard" as UC2a
+    usecase "Access Logs" as UC2b
+    usecase "View Statistics" as UC2c
+    
+    usecase "Configure Settings" as UC3
+}
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+
+UC1 ..> UC1a : <<includes>>
+UC1 ..> UC1b : <<includes>>
+UC1 ..> UC1c : <<includes>>
+UC1 ..> UC1d : <<includes>>
+
+UC2 ..> UC2a : <<includes>>
+UC2 ..> UC2b : <<includes>>
+UC2 ..> UC2c : <<includes>>
+
+@enduml

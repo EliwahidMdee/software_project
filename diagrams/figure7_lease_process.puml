@@ -1,0 +1,45 @@
+@startuml
+' Figure 7 - Lease Management Process (State Diagram)
+
+[*] --> Draft
+
+Draft --> Active : approve & sign
+Draft --> Cancelled : cancel
+
+Active --> Renewed : renew
+Active --> Terminated : terminate
+Active --> Expired : end_date reached
+
+Renewed --> Active : process renewal
+
+Expired --> [*]
+Terminated --> [*]
+Cancelled --> [*]
+
+note right of Draft
+  Lease created but not yet active
+  Awaiting approval and signatures
+end note
+
+note right of Active
+  Tenant occupying unit
+  Payments being tracked
+  Normal operations
+end note
+
+note right of Expired
+  Lease term completed normally
+  Unit becomes available
+end note
+
+note right of Terminated
+  Early termination by either party
+  May involve penalties
+end note
+
+note right of Renewed
+  Existing lease extended
+  New terms may apply
+end note
+
+@enduml

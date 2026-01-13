@@ -1,0 +1,44 @@
+@startuml
+' Figure 8 - Payment Processing Flow (Activity Diagram)
+
+start
+
+:Tenant initiates payment;
+
+:Enter payment details;
+note right
+  Amount
+  Payment date
+  Payment method
+end note
+
+:Upload payment receipt (optional);
+
+:Submit payment;
+
+:System validates payment data;
+
+if (Data valid?) then (yes)
+  :Create payment record;
+  :Update tenant balance;
+  :Link to lease;
+  :Generate confirmation;
+  
+  if (Landlord notification enabled?) then (yes)
+    :Send notification to landlord;
+  else (no)
+  endif
+  
+  :Display success message;
+  
+else (no)
+  :Display validation errors;
+  :Return to payment form;
+  stop
+endif
+
+:Payment recorded successfully;
+
+stop
+
+@enduml

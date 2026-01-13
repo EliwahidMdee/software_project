@@ -1,0 +1,42 @@
+@startuml
+' Figure 5 - Tenant Use Cases
+
+left to right direction
+
+actor "Tenant" as Tenant
+
+rectangle "Rental Management System" {
+    usecase "View Lease Details" as UC1
+    usecase "View Terms" as UC1a
+    usecase "Download Documents" as UC1b
+    
+    usecase "Make Payment" as UC2
+    usecase "Submit Payment Info" as UC2a
+    usecase "Upload Receipt" as UC2b
+    usecase "View Payment History" as UC2c
+    
+    usecase "Submit Notification" as UC3
+    usecase "Create Message" as UC3a
+    usecase "Attach Files" as UC3b
+    usecase "View Responses" as UC3c
+    
+    usecase "View Property Info" as UC4
+}
+
+Tenant --> UC1
+Tenant --> UC2
+Tenant --> UC3
+Tenant --> UC4
+
+UC1 ..> UC1a : <<includes>>
+UC1 ..> UC1b : <<includes>>
+
+UC2 ..> UC2a : <<includes>>
+UC2 ..> UC2b : <<includes>>
+UC2 ..> UC2c : <<includes>>
+
+UC3 ..> UC3a : <<includes>>
+UC3 ..> UC3b : <<includes>>
+UC3 ..> UC3c : <<includes>>
+
+@enduml

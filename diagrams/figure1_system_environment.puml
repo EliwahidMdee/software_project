@@ -1,0 +1,36 @@
+@startuml
+' Figure 1 - System Environment
+
+left to right direction
+
+actor "Admin" as Admin
+actor "Landlord" as Landlord  
+actor "Tenant" as Tenant
+
+package "Rental Management System" {
+    rectangle "React Frontend" as Frontend
+    rectangle "Django REST API" as Backend
+    database "MySQL Database" as DB
+    folder "File Storage" as Storage
+}
+
+Admin --> Frontend : manages system
+Landlord --> Frontend : manages properties
+Tenant --> Frontend : views/pays
+
+Frontend --> Backend : API calls (JWT)
+Backend --> DB : CRUD operations
+Backend --> Storage : file operations
+
+note right of Frontend
+  Responsive web interface
+  React 18+ with Tailwind CSS
+end note
+
+note right of Backend
+  Django REST Framework
+  JWT Authentication
+  Business Logic
+end note
+
+@enduml
