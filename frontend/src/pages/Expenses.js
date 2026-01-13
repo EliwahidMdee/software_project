@@ -15,7 +15,7 @@ import Button from '../components/common/Button';
 import Modal from '../components/common/Modal';
 import Input from '../components/common/Input';
 import LoadingSpinner from '../components/common/LoadingSpinner';
-import { formatCurrency, formatDate } from '../utils/helpers';
+import { formatCurrency, formatDate, pluralize } from '../utils/helpers';
 
 const Expenses = () => {
   // Get authenticated user
@@ -233,7 +233,7 @@ const Expenses = () => {
               {formatCurrency(totalExpenses)}
             </p>
             <p className="text-sm text-gray-500 mt-1">
-              {filteredExpenses.length} expense{filteredExpenses.length !== 1 ? 's' : ''}
+              {filteredExpenses.length} {pluralize(filteredExpenses.length, 'expense')}
             </p>
           </div>
         </Card>

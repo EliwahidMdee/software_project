@@ -15,7 +15,7 @@ import Button from '../components/common/Button';
 import Modal from '../components/common/Modal';
 import Input from '../components/common/Input';
 import LoadingSpinner from '../components/common/LoadingSpinner';
-import { getStatusColor, formatCurrency } from '../utils/helpers';
+import { getStatusColor, formatCurrency, pluralize } from '../utils/helpers';
 
 const Units = () => {
   // Get current user from authentication context
@@ -290,8 +290,8 @@ const Units = () => {
                     {/* Unit Details (Bedrooms/Bathrooms) */}
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">
-                        🛏️ {unit.bedrooms} bed{unit.bedrooms !== 1 ? 's' : ''} • 
-                        🚿 {unit.bathrooms} bath{unit.bathrooms !== 1 ? 's' : ''}
+                        🛏️ {unit.bedrooms} {pluralize(unit.bedrooms, 'bed')} • 
+                        🚿 {unit.bathrooms} {pluralize(unit.bathrooms, 'bath')}
                       </div>
                     </td>
                     

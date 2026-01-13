@@ -250,6 +250,8 @@ const PaymentForm = ({ payment, onSuccess, onCancel }) => {
   const [errors, setErrors] = useState({});
   
   // Fetch leases on mount
+  // Note: Empty dependency array means this effect runs only once when component mounts
+  // We don't include fetchLeases in dependencies to avoid infinite loops
   useEffect(() => {
     fetchLeases();
     // eslint-disable-next-line react-hooks/exhaustive-deps

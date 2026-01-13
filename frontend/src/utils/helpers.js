@@ -116,8 +116,8 @@ export const isValidEmail = (email) => {
  * @returns {boolean} True if valid phone format
  */
 export const isValidPhone = (phone) => {
-  // eslint-disable-next-line no-useless-escape
-  const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+  // Allow digits, spaces, hyphens, plus signs, and parentheses
+  const phoneRegex = /^[\d\s+()-]+$/;
   return phone.length >= 10 && phoneRegex.test(phone);
 };
 
@@ -212,4 +212,18 @@ export const groupBy = (array, key) => {
 export const calculateOccupancyRate = (occupied, total) => {
   if (total === 0) return 0;
   return Math.round((occupied / total) * 100);
+};
+
+/**
+ * Pluralize a word based on count
+ * Helper function to handle singular/plural forms
+ * 
+ * @param {number} count - The count to check
+ * @param {string} singular - Singular form of the word
+ * @param {string} plural - Plural form of the word (optional, defaults to singular + 's')
+ * @returns {string} Correctly pluralized word
+ */
+export const pluralize = (count, singular, plural = null) => {
+  if (count === 1) return singular;
+  return plural || `${singular}s`;
 };
