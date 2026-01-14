@@ -8,28 +8,49 @@ actor "Tenant" as Tenant
 rectangle "Rental Management System" {
     usecase "View Lease Details" as UC1
     usecase "View Terms" as UC1a
-    usecase "Download Documents" as UC1b
+    usecase "View Lease Period" as UC1b
+    usecase "View Rent Amount" as UC1c
+    usecase "View Security Deposit" as UC1d
     
-    usecase "Make Payment" as UC2
-    usecase "Submit Payment Info" as UC2a
-    usecase "Upload Receipt" as UC2b
-    usecase "View Payment History" as UC2c
+    usecase "View Property Info" as UC2
+    usecase "View Property Details" as UC2a
+    usecase "View Unit Details" as UC2b
+    usecase "View Amenities" as UC2c
     
-    usecase "Submit Notification" as UC3
-    usecase "Create Message" as UC3a
-    usecase "Attach Files" as UC3b
-    usecase "View Responses" as UC3c
+    usecase "View Payments" as UC3
+    usecase "View Payment History" as UC3a
+    usecase "View Due Payments" as UC3b
+    usecase "Filter by Status" as UC3c
     
-    usecase "View Property Info" as UC4
+    usecase "Access Documents" as UC4
+    usecase "View Documents" as UC4a
+    usecase "Download Documents" as UC4b
+    usecase "Filter by Type" as UC4c
+    
+    usecase "Manage Notifications" as UC5
+    usecase "Create Notification" as UC5a
+    usecase "View Notifications" as UC5b
+    usecase "Submit Maintenance Request" as UC5c
+    usecase "Submit Complaint" as UC5d
+    usecase "Submit Inquiry" as UC5e
+    usecase "Filter by Type" as UC5f
+    
+    usecase "View Dashboard" as UC6
+    usecase "View Lease Summary" as UC6a
+    usecase "View Payment Status" as UC6b
 }
 
 Tenant --> UC1
 Tenant --> UC2
 Tenant --> UC3
 Tenant --> UC4
+Tenant --> UC5
+Tenant --> UC6
 
 UC1 ..> UC1a : <<includes>>
 UC1 ..> UC1b : <<includes>>
+UC1 ..> UC1c : <<includes>>
+UC1 ..> UC1d : <<includes>>
 
 UC2 ..> UC2a : <<includes>>
 UC2 ..> UC2b : <<includes>>
@@ -38,5 +59,19 @@ UC2 ..> UC2c : <<includes>>
 UC3 ..> UC3a : <<includes>>
 UC3 ..> UC3b : <<includes>>
 UC3 ..> UC3c : <<includes>>
+
+UC4 ..> UC4a : <<includes>>
+UC4 ..> UC4b : <<includes>>
+UC4 ..> UC4c : <<includes>>
+
+UC5 ..> UC5a : <<includes>>
+UC5 ..> UC5b : <<includes>>
+UC5 ..> UC5c : <<includes>>
+UC5 ..> UC5d : <<includes>>
+UC5 ..> UC5e : <<includes>>
+UC5 ..> UC5f : <<includes>>
+
+UC6 ..> UC6a : <<includes>>
+UC6 ..> UC6b : <<includes>>
 
 @enduml

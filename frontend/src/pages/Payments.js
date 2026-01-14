@@ -233,7 +233,6 @@ const Payments = () => {
  * Payment Form Component
  */
 const PaymentForm = ({ payment, onSuccess, onCancel }) => {
-  const [tenants, setTenants] = useState([]);
   const [leases, setLeases] = useState([]);
   const [formData, setFormData] = useState({
     tenant: payment?.tenant || '',
@@ -250,19 +249,13 @@ const PaymentForm = ({ payment, onSuccess, onCancel }) => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   
+  // Fetch leases on mount
+  // Note: Empty dependency array means this effect runs only once when component mounts
+  // We don't include fetchLeases in dependencies to avoid infinite loops
   useEffect(() => {
-    fetchTenants();
     fetchLeases();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
-  const fetchTenants = async () => {
-    try {
-      const data = await getAll('tenants');
-      setTenants(data.results || data);
-    } catch (error) {
-      console.error('Error fetching tenants:', error);
-    }
-  };
   
   const fetchLeases = async () => {
     try {
